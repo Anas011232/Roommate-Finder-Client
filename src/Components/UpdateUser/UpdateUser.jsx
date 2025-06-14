@@ -18,7 +18,7 @@ const UpdateUser = () => {
         const formData = new FormData(form);
         const newUser = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:3000/updateUser/${_id}`, {
+        fetch(`https://a10-server-alpha.vercel.app/updateUser/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

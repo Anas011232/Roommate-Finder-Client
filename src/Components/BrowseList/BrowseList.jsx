@@ -8,7 +8,7 @@ const BrowseList = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/users')
+        fetch('https://a10-server-alpha.vercel.app/users')
             .then(res => res.json())
             .then(data => setPosts(data));
     }, []);

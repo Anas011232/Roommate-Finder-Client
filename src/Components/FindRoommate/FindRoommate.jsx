@@ -3,11 +3,13 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const FindRoommate = () => {
 
     const { user } = use(AuthContext)
     console.log(user);
+    const navigate=useNavigate();
 
 
     const handleUser = (e) => {
@@ -16,7 +18,7 @@ const FindRoommate = () => {
         const formData = new FormData(form)
         const newRoomUser = Object.fromEntries(formData.entries());
 
-        fetch('http://localhost:3000/users', {
+        fetch('https://a10-server-alpha.vercel.app/users', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -31,6 +33,7 @@ const FindRoommate = () => {
                         icon: "success",
                         draggable: true
                     });
+                    navigate('/myList')
 
                 }
 

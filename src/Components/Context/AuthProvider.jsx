@@ -59,9 +59,9 @@ const AuthProvider = ({ children }) => {
         forgotPass
     }
     return (
-        <AuthContext value={userInfo}>
+        <AuthContext.Provider value={userInfo}>
             {children}
-        </AuthContext>
+        </AuthContext.Provider>
     );
 };
 

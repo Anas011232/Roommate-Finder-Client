@@ -10,14 +10,20 @@ const MyListings = () => {
 
     const [myPosts, setMyPosts] = useState([]);
 
-    useEffect(() => {
-        if (user && user.email) {
-            fetch(`http://localhost:3000/users?email=${user.email}`)
-                .then(res => res.json())
-                .then(data => setMyPosts(data))
-                .catch(err => console.error(err));
-        }
-    }, [user]);
+ useEffect(() => {
+    if (user && user.email) {
+        fetch(`https://a10-server-alpha.vercel.app/users?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                // extra security: client side e filter korei set koro
+                const filtered = data.filter(post => post.email === user.email);
+                setMyPosts(filtered);
+            })
+            .catch(err => console.error(err));
+    } else {
+        setMyPosts([]);
+    }
+}, [user]);
 
     return (
         <div>

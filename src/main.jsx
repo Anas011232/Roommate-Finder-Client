@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/updateUser/:id",
-    loader:({params})=>fetch(`http://localhost:3000/updateUser/${params.id}`),
+    loader:({params})=>fetch(`https://a10-server-alpha.vercel.app/updateUser/${params.id}`),
     element:<PrivateRoute> <UpdateUser></UpdateUser> </PrivateRoute>
   },
   {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/browseList/:id",
-    loader:({params})=>fetch(`http://localhost:3000/browseList/${params.id}`),
+    loader:({params})=>fetch(`https://a10-server-alpha.vercel.app/browseList/${params.id}`),
     Component:DetailsCard
   }
 ]);

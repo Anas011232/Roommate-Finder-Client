@@ -15,7 +15,7 @@ const MyListings = () => {
         fetch(`https://a10-server-alpha.vercel.app/users?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                // extra security: client side e filter korei set koro
+                
                 const filtered = data.filter(post => post.email === user.email);
                 setMyPosts(filtered);
             })
